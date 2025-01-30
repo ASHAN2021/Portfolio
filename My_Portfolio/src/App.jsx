@@ -1,10 +1,14 @@
+import Navbar from "./Components/Navbar";
+import Home from "./Pages/Home";
 
 const App=()=> {
   
 
   return (
-    <div>
-      <h1 className='text-9xl'>App</h1>
+    <div className="bg-black w-full h-screen fixed overflow-auto">
+      <Navbar />
+      <Home />
+      
     </div>
   )
 }
