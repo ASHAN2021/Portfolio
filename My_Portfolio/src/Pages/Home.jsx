@@ -21,6 +21,7 @@ const Home = () => {
   return (
     <>
     <section>
+        <div className="flex justify-between items-center bg-black h-screen">
     <div className="ml-25">
         <div className="flex  mt-50">
             <FaCode className="text-4xl text-blue-600 " />
@@ -45,6 +46,10 @@ const Home = () => {
         </div>
         
 
+    </div>
+        <div className="mr-25 mt-25 ">
+                <video src="../../src/assets/first.mp4" autoPlay loop muted className="w-full h-auto"></video>
+        </div>
     </div>
     </section>
     <section className=" h-screen ">
@@ -255,16 +260,54 @@ const Home = () => {
 
     </section>
     <section className=" h-screen">
-                <div className="flex flex-col  items-center bg-black">
+                <div className="flex flex-col  items-center bg-black mt-30">
                     <h1 className="text-3xl text-blue-600 font-bold mt-35">CONTACT</h1>
                     <p className="text-xl text-gray-500 mt-3">Want to get in touch? Send me a message, and I&apos;ll get back to you as soon as possible.</p>
                 </div> 
-                <div>
-                    <div className="bg-[#0C0C1D] w-[800px] h-[400px] m-25 rounded-3xl">
-                            
+                <div className="flex justify-center ">
+                    <div className="bg-[#0C0C1D] w-[600px] h-[400px] m-25 rounded-3xl flex flex-col justify-center items-center">
+                        <input type="text" placeholder="Enter Your name" className="text-xl text-gray-600 w-[500px] border-b-2 border-gray-400 focus:outline-none focus:border-blue-500 "/> <br/>   
+                        <input type="text" placeholder="Enter Your Email" className="text-xl text-gray-600 w-[500px] border-b-2 border-gray-400 focus:outline-none focus:border-blue-500 mt-10"/> <br/>   
+                        <input type="text" placeholder="Enter Your Message" className="text-xl text-gray-600 w-[500px] border-b-2 border-gray-400 focus:outline-none focus:border-blue-500 mt-10"/> <br/>   
+                        <input type="submit" value={"Send Message"} className="bg-blue-600 w-[500px] h-[40px]"/> <br/>   
                     </div>
-                    <div>
-
+                    <div className="mt-25">    
+                        <div className="bg-[#0C0C1D] w-[400px] h-[75px] ">
+                            <div className="flex justify-start pt-5">
+                                <FaLinkedin className="text-4xl text-blue-600 ml-5"/> 
+                                <div>
+                                    <h1 className="text-xl text-white font-bold ml-5 ">Let&apos;s Connect</h1>
+                                    <p className="text-gray-500 ml-5">ASHAN KAVINDA</p> 
+                                </div> 
+                            </div>
+                        </div>
+                        <div className="bg-[#0C0C1D] w-[400px] h-[75px] mt-5">
+                            <div className="flex justify-start pt-5">
+                                <FaFacebookSquare className="text-4xl text-blue-600 ml-5"/> 
+                                <div>
+                                    <h1 className="text-xl text-white font-bold ml-5 ">Facebook</h1>
+                                    <p className="text-gray-500 ml-5">Ashan Kavinda</p> 
+                                </div> 
+                            </div>
+                        </div>
+                        <div className="bg-[#0C0C1D] w-[400px] h-[75px] mt-5">
+                            <div className="flex justify-start pt-5">
+                                <BsInstagram className="text-4xl text-red-500 ml-5"/> 
+                                <div>
+                                    <h1 className="text-xl text-white font-bold ml-5 ">Instagram</h1>
+                                    <p className="text-gray-500 ml-5">kavinda_1020</p> 
+                                </div> 
+                            </div>
+                        </div>
+                        <div className="bg-[#0C0C1D] w-[400px] h-[75px] mt-5">
+                            <div className="flex justify-start pt-5">
+                                <FaGithub className="text-4xl text-gray-600 ml-5"/> 
+                                <div>
+                                    <h1 className="text-xl text-white font-bold ml-5 ">Github</h1>
+                                    <p className="text-gray-500 ml-5">ASHAN2021</p> 
+                                </div> 
+                            </div>
+                        </div>
                     </div>
                 </div>  
     </section>
