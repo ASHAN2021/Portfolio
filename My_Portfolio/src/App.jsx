@@ -1,4 +1,4 @@
-import Navbar from "./Components/Navbar";
+// import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 
 const App=()=> {
@@ -6,7 +6,7 @@ const App=()=> {
 
   return (
     <div className="bg-black w-full h-screen fixed overflow-auto">
-      <Navbar />
+      {/* <Navbar /> */}
       <Home />
       
     </div>

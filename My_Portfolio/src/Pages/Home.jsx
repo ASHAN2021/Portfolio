@@ -12,15 +12,35 @@ import { GrDocument } from "react-icons/gr";
 import { IoCode } from "react-icons/io5";
 import { GrCertificate } from "react-icons/gr";
 import { GrTechnology } from "react-icons/gr";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
 
 const Home = () => {
+
+  const homeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const portfolioRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const scrollToSection = (ref) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
     const [activeTab, setActiveTab] = useState("projects");
   return (
     <>
-    <section>
+     <div className="ml-[400px]  w-[50vw] h-[8vh] rounded-4xl m-10 bg-gray-950 border-2 border- backdrop-blur-md shadow-lg fixed" >
+        <div className="flex justify-around items-center h-full">
+            <button className="text-xl font-bold text-white px-4 py-2 rounded-3xl flex items-center justify-center transition-all duration-300 hover:bg-blue-600 hover:text-black box-border" onClick={() => scrollToSection(homeRef)}>Home</button>
+            <button className="text-xl font-bold text-white px-4 py-2 rounded-3xl flex items-center justify-center transition-all duration-300 hover:bg-blue-600 hover:text-black box-border" onClick={() => scrollToSection(aboutRef)}>About</button>
+            <button className="text-xl font-bold text-white px-4 py-2 rounded-3xl flex items-center justify-center transition-all duration-300 hover:bg-blue-600 hover:text-black box-border" onClick={() => scrollToSection(portfolioRef)}>Portfolio</button>       
+            <button className="text-xl font-bold text-white px-4 py-2 rounded-3xl flex items-center justify-center transition-all duration-300 hover:bg-blue-600 hover:text-black box-border" onClick={() => scrollToSection(contactRef)}>Contact</button>
+        </div>
+    </div>
+
+
+    <section ref={homeRef}>
         <div className="flex justify-between items-center bg-black h-screen">
     <div className="ml-25">
         <div className="flex  mt-50">
@@ -35,8 +55,8 @@ const Home = () => {
         <p className="text-xl text-gray-500 ">I merge creativity with technology,<br/>
         crafting immersive and captivating digital experiences.</p>  
         <div className="flex ">
-            <button className="flex bg-transparent text-white px-5 py-2 shadow-lg  shadow-blue-600 mt-5 mr-8">Project<TbWindowMaximize className="text-2xl text-blue-600 ml-5"/></button>
-            <button className="flex bg-transparent text-white px-5 py-2 shadow-lg  shadow-blue-600 mt-5">Contact<MdOutlineMarkAsUnread className="text-2xl text-blue-600 ml-5"/></button> 
+            <button className="flex bg-transparent text-white px-5 py-2 shadow-lg  shadow-blue-600 mt-5 mr-8" onClick={() => { setActiveTab("projects"); scrollToSection(portfolioRef); }}>Project<TbWindowMaximize className="text-2xl text-blue-600 ml-5"/></button>
+            <button className="flex bg-transparent text-white px-5 py-2 shadow-lg  shadow-blue-600 mt-5"onClick={()=>scrollToSection(contactRef)}>Contact<MdOutlineMarkAsUnread className="text-2xl text-blue-600 ml-5"/></button> 
         </div>
         <div className="flex mt-15">
             <BsInstagram className="text-4xl text-blue-600 "/>
@@ -52,7 +72,7 @@ const Home = () => {
         </div>
     </div>
     </section>
-    <section className=" h-screen ">
+    <section className=" h-screen " ref={aboutRef}>
         
             
                 <div className="flex flex-col  items-center bg-black">
@@ -65,16 +85,17 @@ const Home = () => {
                             <h1 className="text-5xl text-blue-600 font-semibold ">Hello I&apos;m</h1>
                             <h1 className="text-6xl text-white font-bold mt-3">Ashan Kavinda</h1>
                             <p className="text-xl text-gray-500 mt-3">
-                            I&apos;m an enthusiastic undergraduate at UCSC, passionate about<br/> software engineering. I love building innovative solutions and<br/> continuously honing my skills. Eager to take on new challenges<br/> and contribute to impactful projects, I&apos;m always ready to<br/> collaborate and grow in the tech world.
+                            I&apos;m an enthusiastic undergraduate at University of Colombo School of Computing,<br/> passionate about software engineering. I love building innovative solutions and<br/> continuously honing my skills. Eager to take on new challenges<br/> and contribute to impactful projects, I&apos;m always ready to<br/> collaborate and grow in the tech world.
                             </p>
                             <div className="flex">
                                 <button className="flex  text-white px-5 py-2 bg-blue-600 mt-5 mr-8"><GrDocument className="text-2xl text-white mr-3"/>Download CV</button>
-                                <button className="flex  text-white px-5 py-2 border-2 border-blue-600 mt-5 mr-8">view Projects <IoCode className="text-2xl text-white ml-3"/> </button>
+                                <button className="flex  text-white px-5 py-2 border-2 border-blue-600 mt-5 mr-8"onClick={() => { setActiveTab("projects"); scrollToSection(portfolioRef); }}>view Projects <IoCode className="text-2xl text-white ml-3"/> </button>
                             </div>
                         </div>
                     </div> 
                 <div>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSLU5_eUUGBfxfxRd4IquPiEwLbt4E_6RYMw&s" alt="" className="mr-50 mt-20" />
+                    {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSLU5_eUUGBfxfxRd4IquPiEwLbt4E_6RYMw&s" alt="" className="mr-50 mt-20" /> */}
+                    <video src="../../src/assets/prof.mp4" autoPlay loop muted className="mr-50 mt-5 w-[300px] h-[300px]"></video>
                 </div>
             </div> 
             <div className="flex justify-between mt-10 m-25">
@@ -116,7 +137,7 @@ const Home = () => {
                 </div>
             </div>
     </section>
-    <section className=" h-screen">
+    <section className=" h-screen" ref={portfolioRef}>
                 <div className="flex flex-col  items-center bg-black">
                     <h1 className="text-3xl text-blue-600 font-bold mt-35">PORTFOLIO</h1>
                     <p className="text-xl text-gray-500 mt-3">Explore my projects, certifications, and tech stack—each showcasing a milestone in<br/> my continuous journey of learning and innovation.</p>
@@ -174,7 +195,7 @@ const Home = () => {
                     </div>
              </div>   
             <div className="w-[300px] h-[450px] bg-[#1F1F1F] rounded-3xl flex flex-col justify-center items-center ml-10">
-                    <img src="../../src/assets/health_hub.png" alt=""  className="w-[300px] h-[250px] rounded-3xl"/>
+                    <img src="https://images.wuzzuf-data.net/files/company_logo/Health-Hub-for-Public-Health-Egypt-72669-1641675135-og.png" alt=""  className="w-[300px] h-[250px] rounded-3xl"/>
                     <h1 className="text-xl text-white font-bold mb-3">Health-HUB System</h1>
                     <p className="ml-5">A comprehensive platform designed to streamline hospital management, enhancing efficiency and improving patient care.</p>
                     <div className="flex mb-5 justify-center items-center ml-2 "> 
@@ -196,7 +217,7 @@ const Home = () => {
         {activeTab === "certificates" && 
         <>
             <div className="w-[300px] bg-[#1F1F1F] rounded-3xl flex flex-col justify-center items-center ml-10">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E22AQHlHBz3s13p2Q/feedshare-shrink_800/feedshare-shrink_800/0/1689182467719?e=2147483647&v=beta&t=ziqcRHWCTxlKPKbpsumAHCzuZG7Fzfw3PhE995XeBlE" alt=""  className="w-[300px] h-[250px] rounded-3xl"/>
+                    <img src="../../src/assets/aws.png" alt=""  className="w-[300px] h-[250px] rounded-3xl"/>
                     <h1 className="text-xl text-white font-bold mb-5">certificates 1 </h1>
                     
              </div> 
@@ -259,7 +280,7 @@ const Home = () => {
 </div>
 
     </section>
-    <section className=" h-screen">
+    <section className=" h-screen" ref={contactRef}>
                 <div className="flex flex-col  items-center bg-black mt-30">
                     <h1 className="text-3xl text-blue-600 font-bold mt-35">CONTACT</h1>
                     <p className="text-xl text-gray-500 mt-3">Want to get in touch? Send me a message, and I&apos;ll get back to you as soon as possible.</p>
@@ -273,7 +294,8 @@ const Home = () => {
                     </div>
                     <div className="mt-25">    
                         <div className="bg-[#0C0C1D] w-[400px] h-[75px] ">
-                            <div className="flex justify-start pt-5">
+                            <div className="flex justify-start pt-5" onClick={() => window.open("https://www.linkedin.com/in/ashan-kavinda-3031a3286", "_blank")}
+                            >
                                 <FaLinkedin className="text-4xl text-blue-600 ml-5"/> 
                                 <div>
                                     <h1 className="text-xl text-white font-bold ml-5 ">Let&apos;s Connect</h1>
@@ -282,7 +304,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="bg-[#0C0C1D] w-[400px] h-[75px] mt-5">
-                            <div className="flex justify-start pt-5">
+                            <div className="flex justify-start pt-5 " onClick={() => window.open("https://www.facebook.com/profile.php?id=100079513034972&mibextid=ZbWKwL", "_blank")}>
                                 <FaFacebookSquare className="text-4xl text-blue-600 ml-5"/> 
                                 <div>
                                     <h1 className="text-xl text-white font-bold ml-5 ">Facebook</h1>
@@ -291,7 +313,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="bg-[#0C0C1D] w-[400px] h-[75px] mt-5">
-                            <div className="flex justify-start pt-5">
+                            <div className="flex justify-start pt-5" onClick={() => window.open("https://www.instagram.com/ashan_kavinda_21?igsh=ODB0YWpmM292ZWRx", "_blank")}>
                                 <BsInstagram className="text-4xl text-red-500 ml-5"/> 
                                 <div>
                                     <h1 className="text-xl text-white font-bold ml-5 ">Instagram</h1>
@@ -300,7 +322,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="bg-[#0C0C1D] w-[400px] h-[75px] mt-5">
-                            <div className="flex justify-start pt-5">
+                            <div className="flex justify-start pt-5" onClick={() => window.open("https://github.com/ASHAN2021", "_blank")}>
                                 <FaGithub className="text-4xl text-gray-600 ml-5"/> 
                                 <div>
                                     <h1 className="text-xl text-white font-bold ml-5 ">Github</h1>
